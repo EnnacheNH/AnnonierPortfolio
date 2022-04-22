@@ -176,7 +176,11 @@ h1 {
     width: 100%;
 }
 
-.about-img-text > .text {
+.about-img-text > .text-wrapper{
+    transform: translate(0%, 5%);
+}
+
+.about-img-text > .text-wrapper > .text {
     transition: 1s;
     
     color: white;
@@ -186,18 +190,19 @@ h1 {
     border-radius: 15px;
 }
 
-.about-img-text > .text > h2 {
+
+.about-img-text > .text-wrapper > .text > h2 {
     margin-top: 0;
 }
 
 .fadeIn{
     opacity: 1;
-    transform: translate(0%, 5%);
+    transform: translate(0%, 0%);
 }
 
 .fadeOut{
     opacity: 0;
-    transform: translate(0%, 15%);
+    transform: translate(0%, 20%);
 }
 
 @media(min-width: 1000px) {
@@ -215,19 +220,21 @@ h1 {
         width: 75%;
     }
 
-    .about-img-text > .text {
+    .about-img-text > .text-wrapper {
         position: absolute;
         top: 50%;
         right: 0%;
         width: 50%;
-    }
 
-    .fadeIn{
         transform: translate(10%, -50%);
     }
 
+    .fadeIn{
+        transform: translate(0%, 0%);
+    }
+
     .fadeOut{
-        transform: translate(10%, -40%);
+        transform: translate(0%, 20%);
     }
 }
 

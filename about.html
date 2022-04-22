@@ -36,14 +36,16 @@
         <!----------Content---------->
         <div class="about-img-text">
             <img src="profile.jpg">
-            <div class="text fadeOut" id="fadeIn">
-                <h2>Ca, c'est moi.</h2>
-                <p>
-                    Anciennement étudiant en école d'ingénierie électrique et passionné de jeux vidéo,
-                    je me suis lancé le défi de trouver une place dans le monde du développement et de la programmation.
-                    <br>Pourquoi ? Simplement parce que ça me plaît ! Pouvoir créer quelque chose et le voir fonctionner,
-                    c'est passionnant. Ainsi je suis très motivé à en apprendre plus, et à créer toujours plus de choses !
-                </p>
+            <div class="text-wrapper" id="fadeWrapper">
+                <div class="text fadeOut" id="fadeIn">
+                    <h2>Ca, c'est moi.</h2>
+                    <p>
+                        Anciennement étudiant en école d'ingénierie électrique et passionné de jeux vidéo,
+                        je me suis lancé le défi de trouver une place dans le monde du développement et de la programmation.
+                        <br>Pourquoi ? Simplement parce que ça me plaît ! Pouvoir créer quelque chose et le voir fonctionner,
+                        c'est passionnant. Ainsi je suis très motivé à en apprendre plus, et à créer toujours plus de choses !
+                    </p>
+                </div>
             </div>
         </div>
         <div class="about-parcours">
@@ -196,17 +198,17 @@
     const observer = new IntersectionObserver(function(entries, observer){
         entries.forEach(entry => {
             if(entry.isIntersecting){
-                entry.target.classList.remove('fadeOut');
-                entry.target.classList.add('fadeIn');
+                entry.target.children[0].classList.remove('fadeOut');
+                entry.target.children[0].classList.add('fadeIn');
             }
             else {
-                entry.target.classList.add('fadeOut');
-                entry.target.classList.remove('fadeIn');
+                entry.target.children[0].classList.add('fadeOut');
+                entry.target.children[0].classList.remove('fadeIn');
             }
         })
     }, options);
 
-    observer.observe(fadeIn);
+    observer.observe(fadeWrapper);
 
     /* Transition */
     async function switchScreen(url) {
