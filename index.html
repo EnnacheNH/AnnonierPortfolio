@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="styles.css">
@@ -28,10 +29,7 @@
     <div class="container">
         <!----------BANNER---------->
         <div class="banner-wrapper" id="bannerWrapper">
-            <div class="banner-space" id="bannerTopSpace"></div>
-            <div class="banner-text">
-                <h1>Portfolio</h1>
-            </div>
+            <h1>Portfolio</h1>
         </div>
         <!----------Content---------->
         <div class="portfolio-grid" id="grid">
@@ -247,19 +245,30 @@
             </div>
         </div>
         <!----------FOOTER---------->
-        <div class="footer">Vous pouvez également me trouver sur internet sous le pseudo de "Ennache"<br>Notament pour le game making et le G@MING</div>
+        <footer>
+            <p>
+                Vous pouvez également me trouver sur internet sous le pseudo de "Ennache"<br>
+                Notament pour le game making et le G@MING
+            </p>
+        </footer>
     </div>
 </body>
 
 <script>
     /* Parralax */
-    window.addEventListener("scroll", function () {
-        bannerWrapper.style.backgroundSize = (100 + 0.03 * window.scrollY) + 'em';
-    })
+    function bannerResize() {
+        let bannerCoeff = 0.065 * window.innerWidth;
+        let bannerTrigger = 80.0;
+        if(bannerCoeff > bannerTrigger){
+            bannerWrapper.style.backgroundSize = (bannerCoeff + 0.03 * window.scrollY) + 'em';
+        }else{
+            bannerWrapper.style.backgroundSize = (bannerTrigger + 0.03 * window.scrollY) + 'em';
+        }
+    }
 
-    /* Empty space banner height */
-    bannerTopSpace.style.height = '0';
-    
+    bannerResize();
+    window.addEventListener("scroll", bannerResize);
+
     /* Image darken */
     const portfolioItems = document.querySelectorAll('.picture-and-text')
 
@@ -299,6 +308,7 @@
     setWidth();
     window.addEventListener("resize", function () {
         setWidth();
+        bannerResize();
     })
     
     function setWidth(){

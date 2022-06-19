@@ -10,6 +10,9 @@ body {
     text-align: center;
 
     background-color: var(--light-color);
+    /*
+    margin: 0px 500px 0px 500px;
+    */
 }
 
 body > .loading {
@@ -30,8 +33,10 @@ body > .loading {
 }
 
 .container {
+    /*
     display: grid;
     grid-template-columns: 1fr;
+    */
 }
 
 /*--------------------Navbar styles--------------------*/
@@ -80,9 +85,10 @@ body > .loading {
 }
 
 /*--------------------Banner Styles--------------------*/
+
+
 .banner-wrapper {
     background:linear-gradient(rgba(0,0,0,0.3) ,rgba(0,0,0,0.3)), url(index_parallax.png);
-    background-size: 100em;
     background-position: center;
     background-repeat: no-repeat;
 
@@ -92,13 +98,14 @@ body > .loading {
 }
 
 h1 {
-    padding: 1em 0em;
+    padding: 2em 0em;
     color: var(--light-color);
     font-size: clamp(4em, 7vw, 7em);
+    margin-top: 0;
 }
 
 /*--------------------Footer Styles--------------------*/
-.footer {
+footer {
     padding: 0.5em 1em;
     background: rgba(0, 0, 0, 0.8);
     font-size: 0.8em;
@@ -222,6 +229,43 @@ h1 {
     text-align: justify;
 }
 
+@media all and (max-width: 700px) {
+    .portfolio-item > .transition-wrapper > .picture-and-text img {
+        max-width: 300px;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media all and (max-width: 450px) {
+    .right-side {
+        display: block;
+    }
+
+    .right-side .nav-link-wrapper:nth-child(1){
+        margin-bottom: 10px;
+    }
+
+    .slide-img > .arrows {
+        position: absolute;
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .slide-img-wrapper{
+        display: flex;
+        width: 300px;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .slide-img-wrapper img{
+        width: 300px;
+    }
+}
+
 /* ===================================================== Style About
 ========================================================*/
 /*--------------------Content Styles--------------------*/
@@ -266,38 +310,7 @@ h1 {
     transform: translate(0%, 20%);
 }
 
-@media(min-width: 1000px) {
-    .about-img-text {
-        position: relative;
-        width: 75%;
-        height: auto;
-        margin: auto;
-        margin-top: 100px;
-        margin-bottom: 100px;
-    
-        text-align: left;
-    }
-    .about-img-text > img {
-        width: 75%;
-    }
 
-    .about-img-text > .text-wrapper {
-        position: absolute;
-        top: 50%;
-        right: 0%;
-        width: 50%;
-
-        transform: translate(10%, -50%);
-    }
-
-    .fadeIn{
-        transform: translate(0%, 0%);
-    }
-
-    .fadeOut{
-        transform: translate(0%, 20%);
-    }
-}
 
 .about-parcours{
     margin-bottom: 150px;
@@ -437,4 +450,76 @@ h1 {
     width: auto;
     height: clamp(500px, 40vw, 700px);
     margin-bottom: 1em;
+}
+
+/* ===================================================== Style small width
+========================================================*/
+@media (min-width: 1000px) {
+    .about-img-text {
+        position: relative;
+        width: 75%;
+        height: auto;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    
+        text-align: left;
+    }
+    .about-img-text > img {
+        width: 75%;
+    }
+
+    .about-img-text > .text-wrapper {
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        width: 50%;
+
+        transform: translate(10%, -50%);
+    }
+
+    .fadeIn{
+        transform: translate(0%, 0%);
+    }
+
+    .fadeOut{
+        transform: translate(0%, 20%);
+    }
+}
+
+@media all and (max-width: 700px) {
+    .portfolio-item > .transition-wrapper > .picture-and-text img {
+        max-width: 300px;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .right-side {
+        display: block;
+    }
+
+    .right-side .nav-link-wrapper:nth-child(1){
+        margin-bottom: 10px;
+    }
+
+    .slide-img > .arrows {
+        position: absolute;
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .slide-img-wrapper{
+        display: flex;
+        width: 300px;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .slide-img-wrapper img{
+        width: 300px;
+    }
 }
